@@ -28,8 +28,67 @@
 	</div>
 </noscript>
 
-<div class="container text-center mt-3">
-	<h1>Space Engineers Flight Calculator</h1>
+<div class="container mt-3">
+	<h1 class="text-center">Space Engineers Flight Calculator</h1>
+
+	<div class="card mb-3">
+		<div class="card-body">
+			<h5 class="card-title">Route</h5>
+
+			<div class="row mb-3">
+				<div class="col-lg-2">
+					<input type="radio" name="routeType" value="coordinates" id="coordinatesRouteTypeRadio">
+					<label for="coordinatesRouteTypeRadio">Coordinates</label>
+				</div>
+				<div class="col-lg-1">
+					<span class="col-form-label">from</span>
+				</div>
+				<div class="col">
+					<div class="input-group">
+						<input type="number" class="form-control" placeholder="x" id="startXCoordinateInput">
+						<input type="number" class="form-control" placeholder="y" id="startYCoordinateInput">
+						<input type="number" class="form-control" placeholder="z" id="startZCoordinateInput">
+						<div class="input-group-append">
+							<button class="btn btn-outline-secondary" type="button">&#x1f4cb;</button>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="row mb-3">
+				<div class="col-lg-2"></div>
+				<div class="col-lg-1">
+					<span class="col-form-label">to</span>
+				</div>
+				<div class="col">
+					<div class="input-group">
+						<input type="number" class="form-control" placeholder="x" id="destXCoordinateInput">
+						<input type="number" class="form-control" placeholder="y" id="destYCoordinateInput">
+						<input type="number" class="form-control" placeholder="z" id="destZCoordinateInput">
+						<div class="input-group-append">
+							<button class="btn btn-outline-secondary" type="button">&#x1f4cb;</button>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="row mb-3">
+				<div class="col-lg-2">
+					<input type="radio" name="routeType" value="distance" id="distanceRouteTypeRadio">
+					<label for="distanceRouteTypeRadio">Distance</label>
+				</div>
+				<div class="col-lg-1"></div>
+				<div class="col">
+					<div class="input-group">
+						<input type="number" class="form-control" placeholder="distance">
+						<div class="input-group-append">
+							<span class="input-group-text">m</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
 
 <!-- Optional JavaScript -->

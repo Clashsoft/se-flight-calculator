@@ -35,10 +35,13 @@
 		<div class="card-body">
 			<h5 class="card-title">Route</h5>
 
-			<div class="row mb-3">
+			<div class="row mb-3 align-items-baseline">
 				<div class="col-lg-2">
-					<input type="radio" name="routeType" value="coordinates" id="coordinatesRouteTypeRadio">
-					<label for="coordinatesRouteTypeRadio">Coordinates</label>
+					<div class="form-check">
+						<input type="radio" class="form-check-input" name="routeType" value="coordinates"
+						       id="coordinatesRouteTypeRadio">
+						<label class="form-check-label" for="coordinatesRouteTypeRadio">Coordinates</label>
+					</div>
 				</div>
 				<div class="col-lg-1">
 					<span class="col-form-label">from</span>
@@ -55,7 +58,7 @@
 				</div>
 			</div>
 
-			<div class="row mb-3">
+			<div class="row mb-3 align-items-baseline">
 				<div class="col-lg-2"></div>
 				<div class="col-lg-1">
 					<span class="col-form-label">to</span>
@@ -72,10 +75,13 @@
 				</div>
 			</div>
 
-			<div class="row mb-3">
+			<div class="row mb-3 align-items-baseline">
 				<div class="col-lg-2">
-					<input type="radio" name="routeType" value="distance" id="distanceRouteTypeRadio">
-					<label for="distanceRouteTypeRadio">Distance</label>
+					<div class="form-check">
+						<input type="radio" class="form-check-input" name="routeType" value="distance"
+						       id="distanceRouteTypeRadio">
+						<label class="form-check-label" for="distanceRouteTypeRadio">Distance</label>
+					</div>
 				</div>
 				<div class="col-lg-1"></div>
 				<div class="col">
@@ -87,6 +93,12 @@
 					</div>
 				</div>
 			</div>
+		</div>
+	</div>
+
+	<div class="card mb-3">
+		<div class="card-body">
+			<h5 class="card-title">Ship</h5>
 		</div>
 	</div>
 </div>

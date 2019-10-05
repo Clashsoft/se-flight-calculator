@@ -106,26 +106,25 @@ function init() {
 		destZ.input.readOnly = !coordinates;
 	});
 
-	const updateDest = (field, oldValue, newValue) => {
-		if (routeType.value === 'coordinates') {
-			distance.value = Math.sqrt(
-				(startX.value - destX.value) ** 2 + (startY.value - destY.value) ** 2 + (startZ.value - destZ.value) **
-				2);
+	bind(routeType, startX, startY, startZ, destX, destY, destZ, (r, x1, y1, z1, x2, y2, z2) => {
+		if (r === 'coordinates') {
+			distance.value = Math.sqrt((x1 - x2) ** 2 + (y1 - y2) ** 2 + (z1 - z2) ** 2);
 		}
-	};
-
-	routeType.addChangeHandler(updateDest);
-	startX.addChangeHandler(updateDest);
-	startY.addChangeHandler(updateDest);
-	startZ.addChangeHandler(updateDest);
-	destX.addChangeHandler(updateDest);
-	destY.addChangeHandler(updateDest);
-	destZ.addChangeHandler(updateDest);
+	});
 }
 
 // =============== Functions ===============
 
 // --------------- Helpers ---------------
+
+function bind(...args) {
+	const fn = args.pop();
+	for (let f of args) {
+		f.addChangeHandler((field, oldValue, newValue) => {
+			fn.call(this, ...args.map(f => f.value));
+		});
+	}
+}
 
 function checkInput(name, value) {
 	const element = document.querySelector(`input[name=${name}][value=${value}]`);

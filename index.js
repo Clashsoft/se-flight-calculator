@@ -79,6 +79,50 @@ class RadioField extends Field {
 	}
 }
 
+// =============== Constants ===============
+
+const routeType = new RadioField('routeType', 'coordinates');
+const distance = new InputField('distance', 0, document.getElementById('distanceField'));
+const startX = new InputField('startXCoordinate', 0, document.getElementById('startXCoordinateInput'));
+const startY = new InputField('startYCoordinate', 0, document.getElementById('startYCoordinateInput'));
+const startZ = new InputField('startZCoordinate', 0, document.getElementById('startZCoordinateInput'));
+const destX = new InputField('destXCoordinate', 0, document.getElementById('destXCoordinateInput'));
+const destY = new InputField('destYCoordinate', 0, document.getElementById('destYCoordinateInput'));
+const destZ = new InputField('destZCoordinate', 0, document.getElementById('destZCoordinateInput'));
+
+// =============== Initialization ===============
+
+init();
+
+function init() {
+	routeType.addChangeHandler((field, oldValue, newValue) => {
+		let coordinates = newValue === 'coordinates';
+		distance.input.readOnly = coordinates;
+		startX.input.readOnly = !coordinates;
+		startY.input.readOnly = !coordinates;
+		startZ.input.readOnly = !coordinates;
+		destX.input.readOnly = !coordinates;
+		destY.input.readOnly = !coordinates;
+		destZ.input.readOnly = !coordinates;
+	});
+
+	const updateDest = (field, oldValue, newValue) => {
+		if (routeType.value === 'coordinates') {
+			distance.value = Math.sqrt(
+				(startX.value - destX.value) ** 2 + (startY.value - destY.value) ** 2 + (startZ.value - destZ.value) **
+				2);
+		}
+	};
+
+	routeType.addChangeHandler(updateDest);
+	startX.addChangeHandler(updateDest);
+	startY.addChangeHandler(updateDest);
+	startZ.addChangeHandler(updateDest);
+	destX.addChangeHandler(updateDest);
+	destY.addChangeHandler(updateDest);
+	destZ.addChangeHandler(updateDest);
+}
+
 // =============== Functions ===============
 
 // --------------- Helpers ---------------
